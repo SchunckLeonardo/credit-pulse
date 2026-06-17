@@ -1,0 +1,21 @@
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:18.4-alpine3.23
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: credit_pulse_db
+    networks:
+      - credit_pulse_network
+    volumes:
+      - postgres-data:/var/lib/postgresql
+
+networks:
+  credit_pulse_network:
+    driver: bridge
+
+volumes:
+  postgres-data:
