@@ -1,4 +1,4 @@
-package com.creditpulse.creditpulseapi.models.enums;
+package com.creditpulse.creditpulseapi.entity.enums;
 
 public enum CustomerStatusEnum {
     ACTIVE,

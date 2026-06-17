@@ -1,6 +1,6 @@
-package com.creditpulse.creditpulseapi.models.entities;
+package com.creditpulse.creditpulseapi.entity.domain;
 
-import com.creditpulse.creditpulseapi.models.enums.CreditProposalStatusEnum;
+import com.creditpulse.creditpulseapi.entity.enums.CreditProposalStatusEnum;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
