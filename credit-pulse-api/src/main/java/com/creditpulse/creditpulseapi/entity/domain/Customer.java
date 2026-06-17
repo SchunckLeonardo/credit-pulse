@@ -32,43 +32,27 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @NotBlank
-    @Size(max = 150)
     @Column(name = "full_name", length = 150, nullable = false)
     private String fullName;
 
-    @NotBlank
-    @Pattern(regexp = "\\d{11}")
     @Column(length = 11, nullable = false)
     private String cpf;
 
-    @NotNull
-    @Past
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
 
-    @NotBlank
-    @Email
-    @Size(max = 150)
     @Column(length = 150, nullable = false)
     private String email;
 
-    @NotBlank
-    @Size(max = 20)
     @Column(length = 20, nullable = false)
     private String phone;
 
-    @NotNull
-    @DecimalMin(value = "0.01")
     @Column(name = "monthly_income", precision = 15, scale = 2, nullable = false)
     private BigDecimal monthlyIncome;
 
-    @NotBlank
-    @Size(max = 100)
     @Column(length = 100, nullable = false)
     private String profession;
 
-    @Size(max = 30)
     @Column(name = "employment_type", length = 30)
     private String employmentType;
 
@@ -96,6 +80,21 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer")
     private List<CreditProposal> creditProposals = new ArrayList<>();
+
+    public Customer(String fullName, String cpf, LocalDate birthDate, String email, String phone, BigDecimal monthlyIncome, String profession, String employmentType) {
+        this.fullName = fullName;
+        this.cpf = cpf;
+        this.birthDate = birthDate;
+        this.email = email;
+        this.phone = phone;
+        this.monthlyIncome = monthlyIncome;
+        this.profession = profession;
+        this.employmentType = employmentType;
+    }
+
+    public Customer() {
+
+    }
 
     @PrePersist
     void prePersist() {
