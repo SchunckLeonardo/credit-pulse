@@ -81,7 +81,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<CreditProposal> creditProposals = new ArrayList<>();
 
-    public Customer(String fullName, String cpf, LocalDate birthDate, String email, String phone, BigDecimal monthlyIncome, String profession, String employmentType) {
+    public Customer(String fullName, String cpf, LocalDate birthDate, String email, String phone, BigDecimal monthlyIncome, String profession, String employmentType, CustomerStatusEnum status) {
         this.fullName = fullName;
         this.cpf = cpf;
         this.birthDate = birthDate;
@@ -90,6 +90,7 @@ public class Customer {
         this.monthlyIncome = monthlyIncome;
         this.profession = profession;
         this.employmentType = employmentType;
+        this.status = status;
     }
 
     public Customer() {
